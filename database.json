@@ -1,0 +1,58 @@
+{
+  "locais": [
+    {
+      "id": 1,
+      "local": "Parque Central",
+      "descricao": "Um parque bonito com muitas árvores e um lago.",
+      "endereco": {
+        "cep": "12345-678",
+        "rua": "Rua das Flores",
+        "bairro": "Centro",
+        "cidade": "São José",
+        "estado": "SC",
+        "latitude": "-27.5969",
+        "longitude": "-48.5495"
+      },
+      "usuario": "João Silva",
+      "usuarioId": 1
+    },
+    {
+      "id": 2,
+      "local": "Praia do Sol",
+      "descricao": "Uma praia popular com areia branca e águas cristalinas.",
+      "endereco": {
+        "cep": "87654-321",
+        "rua": "Avenida Beira Mar",
+        "bairro": "Praia",
+        "cidade": "Florianópolis",
+        "estado": "SC",
+        "latitude": "-27.5954",
+        "longitude": "-48.5480"
+      },
+      "usuario": "Maria Oliveira",
+      "usuarioId": 2
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "sexo": "Masculino",
+      "cpf": "123.456.789-00",
+      "dataNascimento": "1990-01-01",
+      "email": "joao.silva@example.com",
+      "senha": "senha123",
+      "endereco": "Rua das Flores, Centro, São José, SC"
+    },
+    {
+      "id": 2,
+      "nome": "Maria Oliveira",
+      "sexo": "Feminino",
+      "cpf": "987.654.321-00",
+      "dataNascimento": "1985-05-15",
+      "email": "maria.oliveira@example.com",
+      "senha": "senha456",
+      "endereco": "Avenida Beira Mar, Praia, Florianópolis, SC"
+    }
+  ]
+}

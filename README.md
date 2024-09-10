@@ -1,16 +1,17 @@
 # FloripaMaisTec - FuturoDEV/Nature - Módulo 02 - Front-End 🌟
 
-# Projeto Final - Rotas da Natureza - Por Leiliane Costa ✒️
+# Projeto Final - Preservation365 - Por Leiliane Costa ✒️
 
 
-## Rotas da Natureza 📌
-Este projeto é uma aplicação que permite a criação de usuários, login, listagem e cadastro de locais e informações sobre áreas naturais, trilhas, parques ecológicos, reservas ambientais e outros locais de interesse para os amantes da natureza.
+## Preservation365 📌
+Este projeto é uma aplicação que permite a criação de usuários, login, listagem e cadastro de plantas e animais, além de detalhes sobre as plantas cadatradas, exclusão e edição de itens e usuários cadastrados.
 
 
 ## 💻 Funcionalidades
-- Adicionar usuários e locais
+- Adicionar usuários, plantas e animais
 - Login
-- Visualizar listas de locais salvos
+- Visualizar listas de animais e plantas salvos
+- Excluir e editar itens
 
 
 ## 🚀 Tecnologias Utilizadas
@@ -34,18 +35,29 @@ Para rodar esta aplicação localmente, siga estes passos:
 4. Abra `http://localhost:5173/` em seu navegador para visualizar a aplicação.
 
 
-## ⌨️ Adicionando Usuários
+## ⌨️ Cadastrando Usuários
 Para adicionar um novo usuário, siga os passos abaixo:
 1. Digite o nome do usuário no campo de texto.
 2. Digite o email do usuário no campo de texto.
+3. Digite o CPF do usuário no campo de texto.
+4. Digite senha do usuário no campo de texto.
 3. Clique no botão cadastrar.
 
 
-Lembre-se de que os dados são persistidos no localStorage, o que significa que os interesses adicionados permanecerão mesmo após recarregar a página.
+## ⌨️ Adicionando Plantas
+Para adicionar uma planta, siga os passos abaixo:
+1. Digite o nome da planta no campo de texto.
+2. Digite o habitat no campo de texto.
+3. Digite a descrição da planta no campo de texto.
+4. Clique no botão cadastrar.
 
 
-## 📝 API ViaCep 
-Este projeto também faz uma requisição para a API ViaCep para exibir mapas na aplicação.
+## ⌨️ Adicionando Animais
+Para adicionar um novo animal, siga os passos abaixo:
+1. Digite o nome do animal no campo de texto.
+2. Digite o habitat do animal no campo de texto.
+3. Digite as características do animal  no campo de texto.
+4. Clique no botão cadastrar.
 
 
 ## 🖇️ Projeto orientado por:

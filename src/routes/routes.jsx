@@ -6,6 +6,7 @@ import Dashboard from '../pages/dashboard/Dashboard';
 import CadastroUsuario from '../pages/cadastroUsuario/CadastroUsuario';
 import CadastroAnimal from '../pages/cadastroAnimal/CadastroAnimal';
 import CadastroPlanta from '../pages/cadastroPlanta/CadastroPlanta';
+import AnimalDetail from '../components/AnimalDetail/AnimalDetail';
 
 const AppRoutes = () => (
   
@@ -14,11 +15,13 @@ const AppRoutes = () => (
         <Route path="/" element={<LoginPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/usuario" element={<CadastroUsuario />} />
-        <Route path="/animal" element={<CadastroAnimal />} />
-        <Route path="/planta" element={<CadastroPlanta />} />    
-        {/* <Route path="/listagem" element={<ListagemGeral />} /> */}
-        {/* <Route path="/detalhe" element={<detalhePlanta />} /> */}
+        <Route path="/cadastro" element={<CadastroUsuario />} />
+        <Route path="/animal/novo" element={<CadastroAnimal />} />
+        <Route path="/planta/nova" element={<CadastroPlanta />} />    
+        {/* <Route path="/plantas" element={<ListaPlantas />} /> */}
+        {/* <Route path="/planta/:id" element={<DetalhePlanta />} /> */}
+        {/* <Route path="/animais" element={<ListaAnimais />} /> */}
+        <Route path="/animal/:id" element={<AnimalDetail />} />
       </Routes>
     </AuthProvider>
   

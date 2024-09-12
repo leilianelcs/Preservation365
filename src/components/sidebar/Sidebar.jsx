@@ -34,10 +34,11 @@ function Sidebar() {
                 </div>
                 <nav>
                     <Link to="/dashboard" onClick={handleLinkClick}>Home</Link>
-                    <Link to="/usuario" onClick={handleLinkClick}>Dados Cadastrais</Link>
-                    <Link to="/planta" onClick={handleLinkClick}>Cadastro de Plantas</Link>
-                    <Link to="/animal" onClick={handleLinkClick}>Cadastro de Animais</Link>
-                    <Link to="/lista" onClick={handleLinkClick}>Lista de Animais e Plantas</Link>
+                    <Link to="/cadastro" onClick={handleLinkClick}>Dados Cadastrais</Link>
+                    <Link to="/planta/nova" onClick={handleLinkClick}>Cadastro de Plantas</Link>
+                    <Link to="/animal/novo" onClick={handleLinkClick}>Cadastro de Animais</Link>
+                    <Link to="/animais" onClick={handleLinkClick}>Lista de Animais</Link>
+                    <Link to="/plantas" onClick={handleLinkClick}>Lista de Plantas</Link>
                 </nav>
                 <div className="logout-container">
                     <button className="btn btn-dark" onClick={handleSignOut} aria-label="Sign Out">

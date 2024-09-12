@@ -1,0 +1,38 @@
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import './animalDetail.css';
+
+const AnimalDetail = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const animals = JSON.parse(localStorage.getItem('animals')) || [];
+    const animal = animals.find(animal => animal.id === id);
+
+    const handleDelete = () => {
+        const updatedAnimals = animals.filter(animal => animal.id !== id);
+        localStorage.setItem('animals', JSON.stringify(updatedAnimals));
+        alert('Animal excluído com sucesso!');
+        navigate('/dashboard');
+    };
+
+    const handleEdit = () => {
+        navigate(`/editar-animal/${id}`);
+    };
+
+    if (!animal) {
+        return <div>Animal não encontrado</div>;
+    }
+
+    return (
+        <div className="detail-container">
+            <h2>Detalhes do Animal</h2>
+            <p><strong>Nome:</strong> {animal.nome}</p>
+            <p><strong>Habitat:</strong> {animal.habitat}</p>
+            <p><strong>Características:</strong> {animal.caracteristicas}</p>
+            <button onClick={handleEdit}>Editar</button>
+            <button onClick={handleDelete}>Excluir</button>
+        </div>
+    );
+};
+
+export default AnimalDetail;

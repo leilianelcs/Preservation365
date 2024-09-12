@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { useForm } from 'react-hook-form';
 import Sidebar from '../../components/sidebar/Sidebar';
+import './cadastroPlanta.css'
 
 const CadastroPlanta = () => {
     const navigate = useNavigate(); 

@@ -17,7 +17,8 @@ const AppRoutes = () => (
         <Route path="/usuario" element={<CadastroUsuario />} />
         <Route path="/animal" element={<CadastroAnimal />} />
         <Route path="/planta" element={<CadastroPlanta />} />    
-        {/* <Route path="/locais" element={<ListagemLocais />} /> */}
+        {/* <Route path="/listagem" element={<ListagemGeral />} /> */}
+        {/* <Route path="/detalhe" element={<detalhePlanta />} /> */}
       </Routes>
     </AuthProvider>
   

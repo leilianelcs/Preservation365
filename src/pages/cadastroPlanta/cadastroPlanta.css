@@ -20,8 +20,8 @@ form {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #e0f7e9; /* Fundo verde suave */
-    border: 2px solid #4caf50; /* Borda estilizada */
+    background-color: #e0f7e9;
+    border: 2px solid #4caf50;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -36,7 +36,7 @@ label {
     color: #333;
 }
 
-input {
+input, select, textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -59,7 +59,13 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Responsividade */
+span[role="alert"] {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
 @media (max-width: 768px) {
     form {
         width: 90%;

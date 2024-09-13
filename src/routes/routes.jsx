@@ -6,7 +6,8 @@ import Dashboard from '../pages/dashboard/Dashboard';
 import CadastroUsuario from '../pages/cadastroUsuario/CadastroUsuario';
 import CadastroAnimal from '../pages/cadastroAnimal/CadastroAnimal';
 import CadastroPlanta from '../pages/cadastroPlanta/CadastroPlanta';
-import AnimalDetail from '../components/AnimalDetail/AnimalDetail';
+import AnimalDetail from '../pages/animalDetalhes/AnimalDetail';
+import EditarAnimal from '../pages/editarAnimal/EditarAnimal';
 
 const AppRoutes = () => (
   
@@ -22,6 +23,7 @@ const AppRoutes = () => (
         {/* <Route path="/planta/:id" element={<DetalhePlanta />} /> */}
         {/* <Route path="/animais" element={<ListaAnimais />} /> */}
         <Route path="/animal/:id" element={<AnimalDetail />} />
+        <Route path="/editar/animal/:id" element={<EditarAnimal />} /> 
       </Routes>
     </AuthProvider>
   

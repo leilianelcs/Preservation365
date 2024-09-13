@@ -69,7 +69,7 @@ const LoginPage = () => {
                 </div>
                 <button type="submit">Entrar</button>
                 <p>
-                    Ainda não tem cadastro? <Link to="/usuario">Cadastre-se</Link>
+                    Ainda não tem cadastro? <Link to="/cadastro">Cadastre-se</Link>
                 </p>
             </form>
         </div>

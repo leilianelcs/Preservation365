@@ -16,7 +16,7 @@ const AnimalDetail = () => {
     };
 
     const handleEdit = () => {
-        navigate(`/editar-animal/${id}`);
+        navigate(`/editar/animal/${id}`);
     };
 
     if (!animal) {

@@ -1,49 +1,47 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../../components/sidebar/Sidebar';
-import './cadastroPlanta.css';
+import './editarPlanta.css';
 
-const CadastroPlanta = () => {
-    const navigate = useNavigate(); 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+const EditarPlanta = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const [plant, setPlant] = useState(null);
 
-    const onSubmit = async (data) => {
+    useEffect(() => {
+        const plants = JSON.parse(localStorage.getItem('plants')) || [];
+        const plantToEdit = plants.find(plant => plant.id === id);
+        if (plantToEdit) {
+            setPlant(plantToEdit);
+            setValue('planta', plantToEdit.planta);
+            setValue('habitat', plantToEdit.habitat);
+            setValue('descricao', plantToEdit.descricao);
+        }
+    }, [id, setValue]);
+
+    const onSubmit = (data) => {
         try {
-            const existingPlants = JSON.parse(localStorage.getItem('plants')) || [];
-
-            // Verifica se o nome da planta já existe
-            const plantExists = existingPlants.some(plant => plant.planta === data.planta);
-            if (plantExists) {
-                alert('Nome da planta já cadastrado!');
-                return;
-            }
-
-            // Verifica se o limite de 100 plantas foi atingido
-            if (existingPlants.length >= 100) {
-                alert('Você atingiu o limite de 100 plantas cadastradas!');
-                return;
-            }
-
-            // Gera um ID único para a nova planta
-            const newPlant = { ...data, id: Date.now().toString() };
-
-            // Adiciona a nova planta ao armazenamento local
-            existingPlants.push(newPlant);
-            localStorage.setItem('plants', JSON.stringify(existingPlants));
-
-            alert('Planta cadastrada com sucesso!');
-            navigate(`/planta/${newPlant.id}`); // Redireciona para a página de detalhes da planta
+            const plants = JSON.parse(localStorage.getItem('plants')) || [];
+            const updatedPlants = plants.map(plant => plant.id === id ? { ...plant, ...data } : plant);
+            localStorage.setItem('plants', JSON.stringify(updatedPlants));
+            alert('Planta atualizada com sucesso!');
+            navigate(`/planta/${id}`);
         } catch (error) {
-            console.error('Erro ao cadastrar planta:', error);
-            alert('Erro ao cadastrar planta. Por favor, tente novamente.');
+            console.error('Erro ao atualizar planta:', error);
+            alert('Erro ao atualizar planta. Por favor, tente novamente.');
         }
     };
+
+    if (!plant) {
+        return <div>Planta não encontrada</div>;
+    }
 
     return (
         <div>
             <Sidebar />
-            <h2>Cadastro de Plantas</h2>
+            <h2>Editar Planta</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="planta">Nome da Planta:</label>
@@ -83,10 +81,10 @@ const CadastroPlanta = () => {
                     />
                     {errors.descricao && <span role="alert">{errors.descricao.message}</span>}
                 </div>
-                <button type="submit">Cadastrar</button>
+                <button type="submit">Salvar</button>
             </form>
         </div>
     );
 };
 
-export default CadastroPlanta;
+export default EditarPlanta;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './animalDetail.css';
+import Sidebar from '../../components/sidebar/Sidebar';
 
 const AnimalDetail = () => {
     const { id } = useParams();
@@ -24,7 +25,9 @@ const AnimalDetail = () => {
     }
 
     return (
+        
         <div className="detail-container">
+             <Sidebar />
             <h2>Detalhes do Animal</h2>
             <p><strong>Nome:</strong> {animal.nome}</p>
             <p><strong>Habitat:</strong> {animal.habitat}</p>

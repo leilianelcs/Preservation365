@@ -56,6 +56,10 @@ button:hover {
     }
 }
 
+button + button {
+    margin-top: 10px;
+}
+
 @media (max-width: 480px) {
     .detail-container {
         width: 100%;

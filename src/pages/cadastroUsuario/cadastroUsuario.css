@@ -10,6 +10,11 @@ body {
     height: 100vh;
 }
 
+.logo {
+    max-width: 150px;
+    padding: 10px 50px;
+   } 
+
 h2 {
     text-align: center;
     color: #4caf50;

@@ -43,6 +43,7 @@ const CadastroPlanta = () => {
     return (
         <div>
             <Sidebar />
+            <img className="logo" src="/images/logo-02.png" alt="Logo" />
             <h2>Cadastro de Plantas</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>

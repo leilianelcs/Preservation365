@@ -1,0 +1,49 @@
+/* listaAnimais.css */
+.lista-animais-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.lista-animais-container h2 {
+    text-align: center;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.lista-animais-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-animais-container li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e0f7e9;
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.lista-animais-container li:hover {
+    background-color: #c8e6c9;
+}
+
+.lista-animais-container a {
+    text-decoration: none;
+    color: #103a11;
+    font-weight: bold;
+}
+
+.lista-animais-container a:hover {
+    text-decoration: underline;
+}
+
+/* Mensagem de nenhum animal cadastrado */
+.lista-animais-container p {
+    text-align: center;
+    color: #333;
+    font-style: italic;
+}

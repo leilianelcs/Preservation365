@@ -20,6 +20,13 @@ const PlantaDetail = () => {
         navigate(`/editar/planta/${id}`);
     };
 
+    const handleSubmit = () => {
+        navigate(`/planta/nova`);
+    };
+    
+
+
+
     if (!plant) {
         return <div>Planta não encontrada</div>;
     }
@@ -33,6 +40,7 @@ const PlantaDetail = () => {
             <p><strong>Descrição:</strong> {plant.descricao}</p>
             <button onClick={handleEdit}>Editar</button>
             <button onClick={handleDelete}>Excluir</button>
+            <button onClick={handleSubmit}>Adicionar nova planta</button>
         </div>
     );
 };

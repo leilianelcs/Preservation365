@@ -10,6 +10,8 @@ import AnimalDetail from '../pages/animalDetalhes/AnimalDetail';
 import EditarAnimal from '../pages/editarAnimal/EditarAnimal';
 import PlantaDetail from '../pages/detalhePlanta/PlantaDetail';
 import EditarPlanta from '../pages/editarPlanta/EditarPlanta';
+import ListaPlantas from '../components/listaPlantas/ListaPlantas';
+import ListaAnimais from '../components/listaAnimais/ListaAnimais';
 
 const AppRoutes = () => (
   
@@ -21,9 +23,9 @@ const AppRoutes = () => (
         <Route path="/cadastro" element={<CadastroUsuario />} />
         <Route path="/animal/novo" element={<CadastroAnimal />} />
         <Route path="/planta/nova" element={<CadastroPlanta />} />    
-        {/* <Route path="/plantas" element={<ListaPlantas />} /> */}
+        <Route path="/plantas" element={<ListaPlantas />} />
         <Route path="/planta/:id" element={<PlantaDetail />} />
-        {/* <Route path="/animais" element={<ListaAnimais />} /> */}
+        <Route path="/animais" element={<ListaAnimais />} />
         <Route path="/animal/:id" element={<AnimalDetail />} />
         <Route path="/editar/animal/:id" element={<EditarAnimal />} /> 
         <Route path="/editar/planta/:id" element={<EditarPlanta />} /> 

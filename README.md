@@ -1,7 +1,5 @@
 # Preservation365 🌿
 
-!Logo-02
-
 # Projeto Final - Preservation365 - Por Leiliane Costa ✒️
 
 
@@ -29,13 +27,9 @@ O Preservation365 resolve o problema de gerenciamento e organização de informa
 - **Persistência de Dados**:
 - LocalStorage
 
- ## Imagens 📸
-!dashboard
-*Exemplo de tela inicial da aplicação.*
 
 ## ⚙️ Instalação
 Para rodar esta aplicação localmente, siga estes passos:
-
 1. Clone este repositório para sua máquina: git clone https://github.com/leilianelcs/preservation365.git
 2. No terminal, instale as dependências: `npm install`
 3. Rode a aplicação: `npm run dev`
@@ -82,7 +76,7 @@ Contribuições são sempre bem-vindas! Para contribuir:
 4. Faça push para a branch (`git push origin feature/novaFeature`).
 5. Abra um Pull Request.
 
-## Contato 
+## Contato 📞
 - [@leilianelcs](https://www.github.com/leilianelcs)
 - 📫 leilianelc@gmail.com
 

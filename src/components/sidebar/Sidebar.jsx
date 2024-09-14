@@ -30,7 +30,7 @@ function Sidebar() {
             </button>
             <div className={`sidebar ${isOpen ? 'open' : ''}`} aria-expanded={isOpen}>
                 <div className="logo-container">
-                    <img className="logo" src="/images/logo-02.png" alt="Logo" />
+                    <img className="logo-sidebar" src="/images/logo-02.png" alt="Logo" />
                 </div>
                 <nav>
                     <Link to="/dashboard" onClick={handleLinkClick}>Home</Link>

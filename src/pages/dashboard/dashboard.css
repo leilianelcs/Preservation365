@@ -1,0 +1,76 @@
+.dashboard {
+    display: flex;
+}
+
+.content {
+    margin-left: 250px; /* Ajuste conforme a largura da sua sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Ajuste conforme a largura da sua sidebar */
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    gap: 20px; /* Espaçamento entre os elementos */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre o título e a logo */
+}
+
+h1 {
+    color: #4caf50;
+    margin: 0;
+}
+
+.logo {
+    width: 300px; /* Ajuste conforme necessário */
+    height: auto;
+}
+
+.listas {
+    display: flex;
+    gap: 20px; /* Espaçamento entre as listas */
+}
+
+.lista-animais-container, .lista-plantas-container {
+    flex: 1; /* Faz com que as listas ocupem o mesmo espaço */
+    min-width: 300px; /* Define uma largura mínima para as listas */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #4caf50;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Empilha as listas verticalmente em telas menores */
+    }
+
+    .listas {
+        flex-direction: column; /* Empilha as listas verticalmente em telas menores */
+    }
+}

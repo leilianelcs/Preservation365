@@ -3,19 +3,19 @@
 }
 
 .content {
-    margin-left: 250px; /* Ajuste conforme a largura da sua sidebar */
+    margin-left: 250px; 
     padding: 20px;
-    width: calc(100% - 250px); /* Ajuste conforme a largura da sua sidebar */
+    width: calc(100% - 250px); 
     display: flex;
-    flex-direction: column; /* Organiza o conteúdo em coluna */
-    gap: 20px; /* Espaçamento entre os elementos */
+    flex-direction: column; 
+    gap: 20px; 
 }
 
 .header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Espaçamento entre o título e a logo */
+    gap: 100px; /* Espaçamento entre o título e a logo */
 }
 
 h1 {
@@ -23,8 +23,8 @@ h1 {
     margin: 0;
 }
 
-.logo {
-    width: 300px; /* Ajuste conforme necessário */
+.logo-dashboard {
+    width: 150px; 
     height: auto;
 }
 

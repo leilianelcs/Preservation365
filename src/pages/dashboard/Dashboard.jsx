@@ -11,7 +11,7 @@ const Dashboard = () => {
             <div className="content">
                 <div className="header">
                     <h1>Dashboard</h1>
-                    <img className="logo" src="/images/logo-02.png" alt="Logo" />
+                    <img className="logo-dashboard" src="/images/logo-02.png" alt="Logo" />
                 </div>
                 <div className="listas">
                     <div className="lista-animais-container">

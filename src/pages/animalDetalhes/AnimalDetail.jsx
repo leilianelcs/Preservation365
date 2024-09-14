@@ -20,6 +20,10 @@ const AnimalDetail = () => {
         navigate(`/editar/animal/${id}`);
     };
 
+    const handleSubmit = () => {
+        navigate(`/animal/novo`);
+    };
+
     if (!animal) {
         return <div>Animal não encontrado</div>;
     }
@@ -34,6 +38,7 @@ const AnimalDetail = () => {
             <p><strong>Características:</strong> {animal.caracteristicas}</p>
             <button onClick={handleEdit}>Editar</button>
             <button onClick={handleDelete}>Excluir</button>
+            <button onClick={handleSubmit}>Adicionar novo animal</button>
         </div>
     );
 };

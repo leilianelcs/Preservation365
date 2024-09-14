@@ -1,51 +1,63 @@
-# FloripaMaisTec - FuturoDEV/Nature - Módulo 02 - Front-End 🌟
+# Preservation365 🌿
 
-# Projeto Final - Rotas da Natureza - Por Leiliane Costa ✒️
+# Projeto Final - Preservation365 - Por Leiliane Costa ✒️
 
 
-## Rotas da Natureza 📌
-Este projeto é uma aplicação que permite a criação de usuários, login, listagem e cadastro de locais e informações sobre áreas naturais, trilhas, parques ecológicos, reservas ambientais e outros locais de interesse para os amantes da natureza.
+## Descrição do Projeto 📌
+O Preservation365 é uma aplicação web que permite a criação de usuários, login, listagem e cadastro de plantas e animais. Além disso, oferece detalhes sobre as plantas cadastradas, exclusão e edição de itens. Este projeto visa facilitar o gerenciamento e a preservação de informações sobre a fauna e flora.
 
+## Problema que Resolve 💡
+O Preservation365 resolve o problema de gerenciamento e organização de informações sobre plantas e animais, permitindo que os usuários cadastrem, visualizem, editem e excluam dados de forma eficiente e centralizada.
 
 ## 💻 Funcionalidades
-- Adicionar usuários e locais
+- Adicionar usuários, plantas e animais
 - Login
-- Visualizar listas de locais salvos
+- Visualizar listas de animais e plantas salvos
+- Excluir e editar itens
 
 
 ## 🚀 Tecnologias Utilizadas
-- HTML
-- CSS
-- JavaScript
-- ReactJS
-- NodeJS
-- DOM
-- Context API
-- LocalStorage para persistência dos dados
-- JSON Server
+
+- **Frontend**:
+- HTML, CSS, JavaScript, ReactJS, Context API
+
+- **Backend**:
+- NodeJS, JSON Server
+
+- **Persistência de Dados**:
+- LocalStorage
 
 
 ## ⚙️ Instalação
 Para rodar esta aplicação localmente, siga estes passos:
-
-1. Clone este repositório para sua máquina.
+1. Clone este repositório para sua máquina: git clone https://github.com/leilianelcs/preservation365.git
 2. No terminal, instale as dependências: `npm install`
 3. Rode a aplicação: `npm run dev`
 4. Abra `http://localhost:5173/` em seu navegador para visualizar a aplicação.
 
 
-## ⌨️ Adicionando Usuários
+## ⌨️ Cadastrando Usuários
 Para adicionar um novo usuário, siga os passos abaixo:
-1. Digite o nome do usuário no campo de texto.
-2. Digite o email do usuário no campo de texto.
-3. Clique no botão cadastrar.
+1. Digite o nome, email, CPF e senha do usuário nos campos de texto.
+2. Clique no botão "Cadastrar".
 
 
-Lembre-se de que os dados são persistidos no localStorage, o que significa que os interesses adicionados permanecerão mesmo após recarregar a página.
+## ⌨️ Adicionando Plantas
+Para adicionar uma planta, siga os passos abaixo:
+1. Digite o nome, habitat e descrição da planta nos campos de texto.
+2. Clique no botão "Cadastrar"
 
 
-## 📝 API ViaCep 
-Este projeto também faz uma requisição para a API ViaCep para exibir mapas na aplicação.
+## ⌨️ Adicionando Animais
+Para adicionar um novo animal, siga os passos abaixo:
+1. Digite o nome, habitat e características do animal nos campos de texto.
+2. Clique no botão "Cadastrar"
+
+## Melhorias Futuras 📈
+Implementação de autenticação JWT para maior segurança.
+Integração com uma API externa para obter informações adicionais sobre plantas e animais.
+Adição de funcionalidades de busca e filtragem avançadas.
+Melhorias na interface do usuário para uma experiência mais intuitiva.
 
 
 ## 🖇️ Projeto orientado por:
@@ -64,8 +76,11 @@ Contribuições são sempre bem-vindas! Para contribuir:
 4. Faça push para a branch (`git push origin feature/novaFeature`).
 5. Abra um Pull Request.
 
-## Contato 
+## Contato 📞
 - [@leilianelcs](https://www.github.com/leilianelcs)
 - 📫 leilianelc@gmail.com
 
-### 🤝 Obrigada!
+### 🤝 Agradecimentos
+Obrigada por conferir o projeto! Sinta-se à vontade para contribuir e compartilhar suas sugestões.
+
+## FloripaMaisTec - FuturoDEV/Nature - Módulo 02 - Front-End 🌟

@@ -1,4 +1,3 @@
-// api.js
 
 /**
  * 
@@ -12,26 +11,25 @@ export function api(endpoint, init) {
 }
 
 /**
- * Fetches the localidade data from the JSON file.
- * @returns {Promise<any>}
+  * @returns {Promise<any>}
  */
-export async function fetchLocalidades() {
-  const response = await api('/locais');
+export async function fetchPlantas() {
+  const response = await api('/plantas');
   if (!response.ok) {
-    throw new Error('Failed to fetch localidades');
+    throw new Error('Failed to fetch plantas');
   }
   return response.json();
 }
 
 /**
- * Fetches locations associated with a specific user.
+ * Fetches plants associated with a specific user.
  * @param {string} userId - The ID of the user.
  * @returns {Promise<any[]>}
  */
-export async function fetchLocationsByUser(userId) {
-  const response = await api(`/locais?usuario=${encodeURIComponent(userId)}`);
+export async function fetchPlantasByUser(userId) {
+  const response = await api(`/plantas?usuario=${encodeURIComponent(userId)}`);
   if (!response.ok) {
-    throw new Error('Failed to fetch locations for user');
+    throw new Error('Failed to fetch plants for user');
   }
   return response.json();
 }

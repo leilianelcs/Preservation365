@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import PropTypes from 'prop-types';
-import { api, fetchLocalidades, fetchLocationsByUser } from '../services/api';
+import { api} from '../services/api';
 
 
 export const AuthContext = createContext({

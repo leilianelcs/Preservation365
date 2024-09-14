@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { getLocais } from '../../services/localService';
+import { getPlantas } from '../../services/plantasService';
 import Sidebar from '../../components/sidebar/Sidebar';
 
 const Dashboard = () => {
-  const [locais, setLocais] = useState([]);
+  const [plantas, setPlantas] = useState([]);
 
   useEffect(() => {
-    const fetchLocais = async () => {
-      const locais = await getLocais();
-      setLocais(locais);
+    const fetchPlantas = async () => {
+      const plantas = await getPlantas();
+      console.log(plantas);
+      setPlantas(plantas);
     };
-    fetchLocais();
+    fetchPlantas();
   }, []);
 
   return (
@@ -19,11 +20,12 @@ const Dashboard = () => {
       <div className="dashboard-content">
         <h2>Dashboard</h2>
         <div>
-          <h3>Locais Cadastrados</h3>
-          {locais.map(local => (
-            <div key={local.id}>
-              <h4>{local.nome}</h4>
-              <p>{local.descricao}</p>
+          <h3>Plantas Cadastradas</h3>
+          {plantas.map(planta => (
+            <div key={planta.id}>
+              <h4>{planta.planta}</h4>
+              <p>{planta.habitat}</p>
+              <p>{planta.descricao}</p>
             </div>
           ))}
         </div>
@@ -33,3 +35,42 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
+
+// import React, { useEffect, useState } from 'react';
+// import { getPlantas } from '../../services/plantasService';
+// import Sidebar from '../../components/sidebar/Sidebar';
+
+// const Dashboard = () => {
+//   const [plantas, setPlantas] = useState([]);
+
+//   useEffect(() => {
+//     const fetchPlantas = async () => {
+//       const plantas = await getPlantas();
+//       setPlantas(plantas);
+//     };
+//     fetchPlantas();
+//   }, []);
+
+//   return (
+//     <div className="dashboard-container">
+//       <Sidebar />
+//       <div className="dashboard-content">
+//         <h2>Dashboard</h2>
+//         <div>
+//           <h3>Plantas Cadastradas</h3>
+//           {plantas.map(planta => (
+//             <div key={planta.id}>
+//               <h4>{planta.nome}</h4>
+//               <p>{planta.habitat}</p>
+//               <p>{planta.descricao}</p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Dashboard;

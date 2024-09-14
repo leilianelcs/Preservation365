@@ -34,7 +34,7 @@ const LoginPage = () => {
     return (
         <div className='login-page'>
             <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
-                <img className='logo' src="/images/logo-02.png" alt="Logo" />
+                <img className='logo-login' src="/images/logo-02.png" alt="Logo" />
                 <h1>Efetuar login</h1>
                 <div>
                     <label htmlFor="floatingInput">Email:</label>
@@ -69,7 +69,7 @@ const LoginPage = () => {
                 </div>
                 <button type="submit">Entrar</button>
                 <p>
-                    Ainda não tem cadastro? <Link to="/usuario">Cadastre-se</Link>
+                    Ainda não tem cadastro? <Link to="/cadastro">Cadastre-se</Link>
                 </p>
             </form>
         </div>

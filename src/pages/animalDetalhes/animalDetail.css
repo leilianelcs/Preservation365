@@ -1,4 +1,4 @@
-/* cadastroUsuario.css */
+/* animalDetail.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -10,43 +10,29 @@ body {
     height: 100vh;
 }
 
-.logo {
-    max-width: 150px;
-    padding: 10px 50px;
-   } 
-
 h2 {
     text-align: center;
     color: #4caf50;
     margin-top: 20px;
 }
 
-form {
+.detail-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #e0f7e9; /* Fundo verde suave */
-    border: 2px solid #4caf50; /* Borda estilizada */
+    background-color: #e0f7e9;
+    border: 2px solid #4caf50;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form div {
+.detail-container p {
     margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
     color: #333;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.detail-container strong {
+    color: #4caf50;
 }
 
 button {
@@ -57,22 +43,25 @@ button {
     cursor: pointer;
     border-radius: 4px;
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
-    form {
+    .detail-container {
         width: 90%;
     }
 }
 
+button + button {
+    margin-top: 10px;
+}
+
 @media (max-width: 480px) {
-    form {
+    .detail-container {
         width: 100%;
     }
 }

@@ -1,4 +1,3 @@
-/* cadastroUsuario.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -10,18 +9,7 @@ body {
     height: 100vh;
 }
 
-.logo {
-    max-width: 150px;
-    padding: 10px 50px;
-   } 
-
-h2 {
-    text-align: center;
-    color: #4caf50;
-    margin-top: 20px;
-}
-
-form {
+.detail-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
@@ -31,22 +19,15 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form div {
-    margin-bottom: 15px;
+h2 {
+    text-align: center;
+    color: #4caf50;
+    margin-top: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+p {
+    margin: 10px 0;
     color: #333;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
 }
 
 button {
@@ -57,22 +38,25 @@ button {
     cursor: pointer;
     border-radius: 4px;
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+button + button {
+    margin-top: 10px;
+}
 /* Responsividade */
 @media (max-width: 768px) {
-    form {
+    .detail-container {
         width: 90%;
     }
 }
 
 @media (max-width: 480px) {
-    form {
+    .detail-container {
         width: 100%;
     }
 }

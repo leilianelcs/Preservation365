@@ -1,50 +1,47 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../../components/sidebar/Sidebar';
-import './cadastroAnimal.css';
+import './editarAnimal.css';
 
-const CadastroAnimal = () => {
-    const navigate = useNavigate(); 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+const EditarAnimal = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const [animal, setAnimal] = useState(null);
 
-    const onSubmit = async (data) => {
+    useEffect(() => {
+        const animals = JSON.parse(localStorage.getItem('animals')) || [];
+        const animalToEdit = animals.find(animal => animal.id === id);
+        if (animalToEdit) {
+            setAnimal(animalToEdit);
+            setValue('nome', animalToEdit.nome);
+            setValue('habitat', animalToEdit.habitat);
+            setValue('caracteristicas', animalToEdit.caracteristicas);
+        }
+    }, [id, setValue]);
+
+    const onSubmit = (data) => {
         try {
-            const existingAnimals = JSON.parse(localStorage.getItem('animals')) || [];
-
-            // Verifica se o nome do animal já existe
-            const animalExists = existingAnimals.some(animal => animal.nome === data.nome);
-            if (animalExists) {
-                alert('Nome do animal já cadastrado!');
-                return;
-            }
-
-            // Verifica se o limite de 100 animais foi atingido
-            if (existingAnimals.length >= 100) {
-                alert('Você atingiu o limite de 100 animais cadastrados!');
-                return;
-            }
-
-            // Gera um ID único para o novo animal
-            const newAnimal = { ...data, id: Date.now().toString() };
-
-            // Adiciona o novo animal ao armazenamento local
-            existingAnimals.push(newAnimal);
-            localStorage.setItem('animals', JSON.stringify(existingAnimals));
-
-            alert('Animal cadastrado com sucesso!');
-            navigate(`/animal/${newAnimal.id}`); // Redireciona para a página de detalhes do animal
+            const animals = JSON.parse(localStorage.getItem('animals')) || [];
+            const updatedAnimals = animals.map(animal => animal.id === id ? { ...animal, ...data } : animal);
+            localStorage.setItem('animals', JSON.stringify(updatedAnimals));
+            alert('Animal atualizado com sucesso!');
+            navigate(`/animal/${id}`);
         } catch (error) {
-            console.error('Erro ao cadastrar animal:', error);
-            alert('Erro ao cadastrar animal. Por favor, tente novamente.');
+            console.error('Erro ao atualizar animal:', error);
+            alert('Erro ao atualizar animal. Por favor, tente novamente.');
         }
     };
+
+    if (!animal) {
+        return <div>Animal não encontrado</div>;
+    }
 
     return (
         <div>
             <Sidebar />
-            <img className="logo" src="/images/logo-02.png" alt="Logo" />
-            <h2>Cadastro de Animal</h2>
+            <h2>Editar Animal</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="nome">Nome do Animal:</label>
@@ -85,10 +82,10 @@ const CadastroAnimal = () => {
                     />
                     {errors.caracteristicas && <span role="alert">{errors.caracteristicas.message}</span>}
                 </div>
-                <button type="submit">Cadastrar</button>
+                <button type="submit">Salvar</button>
             </form>
         </div>
     );
 };
 
-export default CadastroAnimal;
+export default EditarAnimal;

@@ -10,16 +10,24 @@ export const initData = () => {
   const animais = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ANIMAIS_KEY));
 
   if (!users) {
+    console.log('Inicializando usuários no localStorage...');
     localStorage.setItem(LOCAL_STORAGE_USERS_KEY, JSON.stringify(database.usuarios));
+  } else {
+    console.log('Usuários já existem no localStorage.');
   }
 
   if (!plantas) {
+    console.log('Inicializando plantas no localStorage...');
     localStorage.setItem(LOCAL_STORAGE_PLANTAS_KEY, JSON.stringify(database.plantas));
+  } else {
+    console.log('Plantas já existem no localStorage.');
   }
 
-  
   if (!animais) {
+    console.log('Inicializando animais no localStorage...');
     localStorage.setItem(LOCAL_STORAGE_ANIMAIS_KEY, JSON.stringify(database.animais));
+  } else {
+    console.log('Animais já existem no localStorage.');
   }
-
 };
+

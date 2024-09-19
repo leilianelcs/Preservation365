@@ -7,26 +7,30 @@ const validatePassword = (password) => {
     return regex.test(password);
 };
 
+const clearLocalStorage = () => {
+    localStorage.clear();
+    alert('LocalStorage limpo!');
+};
+
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
         try {
-            // Busca os usuários cadastrados no localStorage
             const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
-            // Verifica se o usuário existe e se a senha está correta
             const user = existingUsers.find(user => user.email === data.email && user.password === data.password);
 
             if (user) {
-                // Simulação de login bem-sucedido
+                if (data.rememberMe) {
+                    localStorage.setItem('rememberedUser', JSON.stringify(user));
+                }
                 alert('Bem-vindo!');
                 navigate('/dashboard');
             } else {
                 alert('Email ou senha inválidos!');
             }
         } catch (error) {
-            alert('Erro ao efetuar o login');
             console.error('Error during sign in process:', error);
         }
     };
@@ -44,6 +48,7 @@ const LoginPage = () => {
                         placeholder="nome@exemplo.com"
                         {...register('email', { required: 'Email é obrigatório' })}
                         aria-invalid={errors.email ? "true" : "false"}
+                        autoComplete="email" // Adicionado
                     />
                     {errors.email && <span role="alert">{errors.email.message}</span>}
                 </div>
@@ -55,14 +60,23 @@ const LoginPage = () => {
                         placeholder="Senha"
                         {...register('password', {
                             required: 'Senha é obrigatória',
-                            validate: validatePassword || 'Senha deve ter ao menos 8 caracteres, incluindo letras e números'
+                            validate: {
+                                validatePassword: value => validatePassword(value) || 'Senha deve ter ao menos 8 caracteres, incluindo letras e números'
+                            }
                         })}
                         aria-invalid={errors.password ? "true" : "false"}
+                        autoComplete="current-password" // Adicionado
                     />
                     {errors.password && <span role="alert">{errors.password.message}</span>}
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault" />
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value="remember-me"
+                        id="flexCheckDefault"
+                        {...register('rememberMe')}
+                    />
                     <label className="form-check-label" htmlFor="flexCheckDefault">
                         Lembrar-me
                     </label>
@@ -72,6 +86,9 @@ const LoginPage = () => {
                     Ainda não tem cadastro? <Link to="/cadastro">Cadastre-se</Link>
                 </p>
             </form>
+            <button className="clear-button" onClick={clearLocalStorage}>
+                Limpar LocalStorage
+            </button>
         </div>
     );
 };

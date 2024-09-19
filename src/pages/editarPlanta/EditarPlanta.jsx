@@ -22,16 +22,11 @@ const EditarPlanta = () => {
     }, [id, setValue]);
 
     const onSubmit = (data) => {
-        try {
-            const plants = JSON.parse(localStorage.getItem('plants')) || [];
-            const updatedPlants = plants.map(plant => plant.id === id ? { ...plant, ...data } : plant);
-            localStorage.setItem('plants', JSON.stringify(updatedPlants));
-            alert('Planta atualizada com sucesso!');
-            navigate(`/planta/${id}`);
-        } catch (error) {
-            console.error('Erro ao atualizar planta:', error);
-            alert('Erro ao atualizar planta. Por favor, tente novamente.');
-        }
+        const plants = JSON.parse(localStorage.getItem('plants')) || [];
+        const updatedPlants = plants.map(plant => plant.id === id ? { ...plant, ...data } : plant);
+        localStorage.setItem('plants', JSON.stringify(updatedPlants));
+        alert('Planta atualizada com sucesso!');
+        navigate(`/planta/${id}`);
     };
 
     if (!plant) {

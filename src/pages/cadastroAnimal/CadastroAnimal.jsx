@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { useForm } from 'react-hook-form';
 import Sidebar from '../../components/sidebar/Sidebar';
@@ -6,7 +6,8 @@ import './cadastroAnimal.css';
 
 const CadastroAnimal = () => {
     const navigate = useNavigate(); 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [notification, setNotification] = useState('');
 
     const onSubmit = async (data) => {
         try {
@@ -15,28 +16,32 @@ const CadastroAnimal = () => {
             // Verifica se o nome do animal já existe
             const animalExists = existingAnimals.some(animal => animal.nome === data.nome);
             if (animalExists) {
-                alert('Nome do animal já cadastrado!');
+                setNotification('Nome do animal já cadastrado!');
                 return;
             }
 
             // Verifica se o limite de 100 animais foi atingido
             if (existingAnimals.length >= 100) {
-                alert('Você atingiu o limite de 100 animais cadastrados!');
+                setNotification('Você atingiu o limite de 100 animais cadastrados!');
                 return;
             }
 
-            // Gera um ID único para o novo animal
-            const newAnimal = { ...data, id: Date.now().toString() };
+            // Captura o ID do usuário logado
+            const loggedUserId = localStorage.getItem('loggedUserId'); // Certifique-se de que este valor esteja disponível
+
+            // Gera um ID único para o novo animal e inclui o usuarioId
+            const newAnimal = { ...data, id: Date.now().toString(), usuarioId: loggedUserId };
 
             // Adiciona o novo animal ao armazenamento local
             existingAnimals.push(newAnimal);
             localStorage.setItem('animals', JSON.stringify(existingAnimals));
 
-            alert('Animal cadastrado com sucesso!');
-            navigate(`/animal/${newAnimal.id}`); // Redireciona para a página de detalhes do animal
+            setNotification('Animal cadastrado com sucesso!');
+            reset(); // Limpa o formulário
+            navigate(`/animais`); // Redireciona para a lista de animais
         } catch (error) {
             console.error('Erro ao cadastrar animal:', error);
-            alert('Erro ao cadastrar animal. Por favor, tente novamente.');
+            setNotification('Erro ao cadastrar animal. Por favor, tente novamente.');
         }
     };
 
@@ -45,6 +50,7 @@ const CadastroAnimal = () => {
             <Sidebar />
             <img className="logo" src="/images/logo-02.png" alt="Logo" />
             <h2>Cadastro de Animal</h2>
+            {notification && <div aria-live="polite" className="notification">{notification}</div>}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="nome">Nome do Animal:</label>
@@ -92,3 +98,4 @@ const CadastroAnimal = () => {
 };
 
 export default CadastroAnimal;
+

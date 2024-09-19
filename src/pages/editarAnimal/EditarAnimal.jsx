@@ -22,16 +22,11 @@ const EditarAnimal = () => {
     }, [id, setValue]);
 
     const onSubmit = (data) => {
-        try {
-            const animals = JSON.parse(localStorage.getItem('animals')) || [];
-            const updatedAnimals = animals.map(animal => animal.id === id ? { ...animal, ...data } : animal);
-            localStorage.setItem('animals', JSON.stringify(updatedAnimals));
-            alert('Animal atualizado com sucesso!');
-            navigate(`/animal/${id}`);
-        } catch (error) {
-            console.error('Erro ao atualizar animal:', error);
-            alert('Erro ao atualizar animal. Por favor, tente novamente.');
-        }
+        const animals = JSON.parse(localStorage.getItem('animals')) || [];
+        const updatedAnimals = animals.map(animal => animal.id === id ? { ...animal, ...data } : animal);
+        localStorage.setItem('animals', JSON.stringify(updatedAnimals));
+        alert('Animal atualizado com sucesso!');
+        navigate(`/animal/${id}`);
     };
 
     if (!animal) {

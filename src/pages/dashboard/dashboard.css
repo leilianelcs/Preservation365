@@ -1,5 +1,6 @@
 .dashboard {
     display: flex;
+    position: relative;
 }
 
 .content {
@@ -15,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px; /* Espaçamento entre o título e a logo */
+    gap: 100px;
 }
 
 h1 {
@@ -30,12 +31,12 @@ h1 {
 
 .listas {
     display: flex;
-    gap: 20px; /* Espaçamento entre as listas */
+    gap: 20px; 
 }
 
 .lista-animais-container, .lista-plantas-container {
-    flex: 1; /* Faz com que as listas ocupem o mesmo espaço */
-    min-width: 300px; /* Define uma largura mínima para as listas */
+    flex: 1; 
+    min-width: 300px; 
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 8px;
@@ -64,13 +65,35 @@ a:hover {
     text-decoration: underline;
 }
 
+.fundo-dashboard {
+    border-radius: 10px;
+    border: 5px solid #4caf50;
+    position: absolute;
+    top: 0;
+    left: 250px; 
+    width: calc(100% - 250px);
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .content {
-        flex-direction: column; /* Empilha as listas verticalmente em telas menores */
+        margin-left: 0; /* Remove a margem esquerda em telas menores */
+        width: 100%; /* Aumenta a largura para 100% */
     }
 
     .listas {
-        flex-direction: column; /* Empilha as listas verticalmente em telas menores */
+        flex-direction: column; /* Empilha as listas verticalmente */
+    }
+
+    .header {
+        flex-direction: column; /* Alinha o cabeçalho em coluna */
+        align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    }
+
+    h1 {
+        margin-bottom: 10px; /* Espaçamento abaixo do título em telas menores */
     }
 }

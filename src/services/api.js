@@ -1,23 +1,29 @@
-
 /**
- * 
+ * Centralized fetch function for API calls.
  * @param {string} endpoint 
  * @param {RequestInit} init 
  * @returns {Promise<Response>}
  */
-export function api(endpoint, init) {
-  const url = 'http://localhost:5173' + endpoint;
-  return fetch(url, init);
+export async function api(endpoint, init) {
+  const url = `${process.env.REACT_APP_API_URL}${endpoint}`; // Use uma variável de ambiente
+  try {
+    const response = await fetch(url, init);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error; // Re-throw the error after logging it
+  }
 }
 
 /**
-  * @returns {Promise<any>}
+ * Fetches all plants.
+ * @returns {Promise<any>}
  */
 export async function fetchPlantas() {
   const response = await api('/plantas');
-  if (!response.ok) {
-    throw new Error('Failed to fetch plantas');
-  }
   return response.json();
 }
 
@@ -28,10 +34,5 @@ export async function fetchPlantas() {
  */
 export async function fetchPlantasByUser(userId) {
   const response = await api(`/plantas?usuario=${encodeURIComponent(userId)}`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch plants for user');
-  }
   return response.json();
 }
-
-

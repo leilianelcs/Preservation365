@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { LogOut, Menu } from 'lucide-react';
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import './sidebar.css';
 
 function Sidebar() {
@@ -34,14 +33,14 @@ function Sidebar() {
                 </div>
                 <nav>
                     <Link to="/dashboard" onClick={handleLinkClick}>Home</Link>
-                    <Link to="/cadastro" onClick={handleLinkClick}>Dados Cadastrais</Link>
+                    <Link to="/cadastro" onClick={handleLinkClick}>Cadastro de Usuários</Link>
                     <Link to="/planta/nova" onClick={handleLinkClick}>Cadastro de Plantas</Link>
                     <Link to="/animal/novo" onClick={handleLinkClick}>Cadastro de Animais</Link>
                     <Link to="/animais" onClick={handleLinkClick}>Lista de Animais</Link>
                     <Link to="/plantas" onClick={handleLinkClick}>Lista de Plantas</Link>
                 </nav>
                 <div className="logout-container">
-                    <button className="btn btn-dark" onClick={handleSignOut} aria-label="Sign Out">
+                    <button className="btn" onClick={handleSignOut} aria-label="Sign Out">
                         <LogOut size={16} />
                         <span className="logout-text">Sair</span>
                     </button>
@@ -50,9 +49,5 @@ function Sidebar() {
         </>
     );
 }
-
-Sidebar.propTypes = {
-    signOut: PropTypes.func.isRequired,
-};
 
 export default Sidebar;

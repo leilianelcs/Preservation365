@@ -11,6 +11,7 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     transform: translateX(-100%);
+    z-index: 1000; /* Para garantir que a sidebar fique acima de outros elementos */
 }
 
 .sidebar.open {
@@ -21,16 +22,16 @@
     position: fixed;
     top: 20px;
     left: 20px;
-    background-color: #228924;
+    background-color: #4caf50; /* Cor consistente com o design */
     border: none;
     color: white;
     padding: 10px;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1100; /* Um pouco acima da sidebar */
 }
 
 .sidebar-toggle:hover {
-    background-color: #4caf50;
+    background-color: #228924; /* Tom mais escuro ao passar o mouse */
 }
 
 .logo-container {
@@ -64,6 +65,7 @@ nav a:hover {
     width: 100%;
     text-align: center;
 }
+
 .btn {
     background-color: #4caf50;
     color: white;
@@ -73,6 +75,7 @@ nav a:hover {
     border-radius: 4px;
     margin: 0 auto; /* Centraliza horizontalmente */
     display: block; /* Necessário para centralização */
+    transition: background-color 0.3s; /* Transição suave para o hover */
 }
 
 .btn:hover {
@@ -82,12 +85,17 @@ nav a:hover {
 /* Responsividade */
 @media (max-width: 768px) {
     .sidebar {
-        width: 200px;
+        width: 200px; /* Largura menor em telas médias */
     }
 }
 
 @media (max-width: 480px) {
     .sidebar {
-        width: 150px;
+        width: 150px; /* Largura ainda menor em telas pequenas */
+    }
+
+    .sidebar-toggle {
+        left: 10px; /* Ajuste na posição do botão */
+        top: 10px; /* Ajuste na posição do botão */
     }
 }

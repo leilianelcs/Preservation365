@@ -1,14 +1,4 @@
 /* LoginPage.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
 .login-page {
     display: flex;
@@ -27,11 +17,7 @@ body {
     max-width: 400px;
     width: 100%;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Alinha horizontalmente */
 }
-
 
 .login-form {
     width: 100%;
@@ -59,9 +45,8 @@ input {
     max-width: 150px;
     margin-bottom: 10px;
     padding: 0px 70px;
- }
+}
 
- 
 h1 {
     padding: 10px 50px;
 }
@@ -105,8 +90,8 @@ p a:hover {
     height: 20px;
     margin-right: 10px;
     cursor: pointer;
-    accent-color: #4caf50; /* Cor do checkbox */
-    border: 2px solid #4caf50; /* Borda estilizada */
+    accent-color: #4caf50;
+    border: 2px solid #4caf50;
     border-radius: 4px;
 }
 

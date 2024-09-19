@@ -8,12 +8,21 @@ const AnimalDetail = () => {
     const navigate = useNavigate();
     const animals = JSON.parse(localStorage.getItem('animals')) || [];
     const animal = animals.find(animal => animal.id === id);
+    const loggedUserId = localStorage.getItem('loggedUserId'); // ID do usuário logado
 
     const handleDelete = () => {
-        const updatedAnimals = animals.filter(animal => animal.id !== id);
-        localStorage.setItem('animals', JSON.stringify(updatedAnimals));
-        alert('Animal excluído com sucesso!');
-        navigate('/dashboard');
+        if (animal.usuarioId !== loggedUserId) { // Verifica se o usuário é o proprietário
+            alert('Você não tem permissão para excluir este animal.');
+            return;
+        }
+
+        const confirmDelete = window.confirm('Tem certeza que deseja excluir este animal?');
+        if (confirmDelete) {
+            const updatedAnimals = animals.filter(animal => animal.id !== id);
+            localStorage.setItem('animals', JSON.stringify(updatedAnimals));
+            alert('Animal excluído com sucesso!');
+            navigate('/animais'); 
+        }
     };
 
     const handleEdit = () => {
@@ -29,18 +38,18 @@ const AnimalDetail = () => {
     }
 
     return (
-        
         <div className="detail-container">
-             <Sidebar />
+            <Sidebar />
             <h2>Detalhes do Animal</h2>
             <p><strong>Nome:</strong> {animal.nome}</p>
             <p><strong>Habitat:</strong> {animal.habitat}</p>
             <p><strong>Características:</strong> {animal.caracteristicas}</p>
-            <button onClick={handleEdit}>Editar</button>
-            <button onClick={handleDelete}>Excluir</button>
-            <button onClick={handleSubmit}>Adicionar novo animal</button>
+            <button onClick={handleEdit} aria-label="Editar animal">Editar</button>
+            <button onClick={handleDelete} aria-label="Excluir animal">Excluir</button>
+            <button onClick={handleSubmit} aria-label="Adicionar novo animal">Adicionar novo animal</button>
         </div>
     );
 };
 
 export default AnimalDetail;
+

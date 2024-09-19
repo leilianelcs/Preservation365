@@ -12,31 +12,34 @@ const CadastroPlanta = () => {
         try {
             const existingPlants = JSON.parse(localStorage.getItem('plants')) || [];
 
-            // Verifica se o nome da planta já existe
+            
             const plantExists = existingPlants.some(plant => plant.planta === data.planta);
             if (plantExists) {
-                alert('Nome da planta já cadastrado!');
+                alert('Nome da planta já cadastrado!'); 
                 return;
             }
 
-            // Verifica se o limite de 100 plantas foi atingido
+            
             if (existingPlants.length >= 100) {
-                alert('Você atingiu o limite de 100 plantas cadastradas!');
+                alert('Você atingiu o limite de 100 plantas cadastradas!'); 
                 return;
             }
 
-            // Gera um ID único para a nova planta
-            const newPlant = { ...data, id: Date.now().toString() };
+            
+            const loggedUserId = localStorage.getItem('loggedUserId'); 
 
-            // Adiciona a nova planta ao armazenamento local
+            // Gera um ID único para a nova planta e inclui o usuarioId
+            const newPlant = { ...data, id: Date.now().toString(), usuarioId: loggedUserId };
+
+            
             existingPlants.push(newPlant);
             localStorage.setItem('plants', JSON.stringify(existingPlants));
 
-            alert('Planta cadastrada com sucesso!');
-            navigate(`/planta/${newPlant.id}`); // Redireciona para a página de detalhes da planta
+            alert('Planta cadastrada com sucesso!'); 
+            navigate(`/planta/${newPlant.id}`); 
         } catch (error) {
             console.error('Erro ao cadastrar planta:', error);
-            alert('Erro ao cadastrar planta. Por favor, tente novamente.');
+            alert('Erro ao cadastrar planta. Por favor, tente novamente.'); 
         }
     };
 
@@ -57,6 +60,7 @@ const CadastroPlanta = () => {
                                 message: 'Nome da planta não deve ultrapassar 100 caracteres'
                             }
                         })}
+                        aria-invalid={errors.planta ? "true" : "false"} 
                     />
                     {errors.planta && <span role="alert">{errors.planta.message}</span>}
                 </div>
@@ -81,6 +85,7 @@ const CadastroPlanta = () => {
                                 message: 'Descrição não deve ultrapassar 500 caracteres'
                             }
                         })}
+                        aria-invalid={errors.descricao ? "true" : "false"} 
                     />
                     {errors.descricao && <span role="alert">{errors.descricao.message}</span>}
                 </div>

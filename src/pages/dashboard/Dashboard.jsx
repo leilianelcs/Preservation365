@@ -13,6 +13,13 @@ const Dashboard = () => {
                     <h1>Dashboard</h1>
                     <img className="logo-dashboard" src="/images/logo-02.png" alt="Logo" />
                 </div>
+                <div>
+                    <img 
+                        className="fundo-dashboard" 
+                        src="/images/img-planta-02.jpg" 
+                        alt="Imagem decorativa de planta" 
+                    />
+                </div>
                 <div className="listas">
                     <div className="lista-animais-container">
                         <ListaAnimais />

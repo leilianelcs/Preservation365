@@ -1,7 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
 import { useForm } from 'react-hook-form';
-import './cadastroUsuario.css';
+import { useNavigate } from 'react-router-dom';
+import './signUp.css';
 
 const validateCPF = (cpf) => {
     cpf = cpf.replace(/[^\d]+/g, '');
@@ -25,14 +25,13 @@ const formatCPF = (cpf) => {
     return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
 };
 
-
 const validatePassword = (password) => {
     const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     return regex.test(password);
 };
 
-const CadastroUsuario = () => {
-    const navigate = useNavigate(); 
+const SignUpPage = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
@@ -56,9 +55,9 @@ const CadastroUsuario = () => {
     };
 
     return (
-        <div>
-            <img className="logo" src="/images/logo-02.png" alt="Logo" />
-            <h2>Cadastro de Usuário</h2>
+        <div className="signup-container">
+            <img className="signup-logo" src="../../images/logo-02.png" alt="Logo" />
+            <h2>Cadastro do Usuário</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="usuario">Nome Completo:</label>
@@ -66,23 +65,28 @@ const CadastroUsuario = () => {
                         id="usuario"
                         placeholder="Nome completo"
                         {...register('usuario', { required: 'Nome completo é obrigatório' })}
+                        aria-invalid={errors.usuario ? "true" : "false"}
+                        autoComplete="name" // Adicionado
                     />
                     {errors.usuario && <span role="alert">{errors.usuario.message}</span>}
                 </div>
                 <div>
-    <label htmlFor="cpf">CPF:</label>
-    <input
-        id="cpf"
-        placeholder="CPF"
-        {...register('cpf', {
-            required: 'CPF é obrigatório',
-            validate: validateCPF || 'CPF inválido',
-            onChange: (e) => e.target.value = formatCPF(e.target.value)
-        })}
-    />
-    {errors.cpf && <span role="alert">{errors.cpf.message}</span>}
-</div>
-
+                    <label htmlFor="cpf">CPF:</label>
+                    <input
+                        id="cpf"
+                        placeholder="CPF"
+                        {...register('cpf', {
+                            required: 'CPF é obrigatório',
+                            validate: {
+                                validateCPF: (value) => validateCPF(value) || 'CPF inválido'
+                            },
+                            onChange: (e) => e.target.value = formatCPF(e.target.value)
+                        })}
+                        aria-invalid={errors.cpf ? "true" : "false"}
+                        autoComplete="cpf" // Adicionado
+                    />
+                    {errors.cpf && <span role="alert">{errors.cpf.message}</span>}
+                </div>
                 <div>
                     <label htmlFor="email">Email:</label>
                     <input
@@ -95,6 +99,8 @@ const CadastroUsuario = () => {
                                 message: 'Email inválido'
                             }
                         })}
+                        aria-invalid={errors.email ? "true" : "false"}
+                        autoComplete="email" // Adicionado
                     />
                     {errors.email && <span role="alert">{errors.email.message}</span>}
                 </div>
@@ -106,9 +112,12 @@ const CadastroUsuario = () => {
                         placeholder="Senha"
                         {...register('password', {
                             required: 'Senha é obrigatória',
-                            validate: validatePassword || 'Senha deve ter ao menos 8 caracteres, incluindo letras e números'
+                            validate: {
+                                validatePassword: (value) => validatePassword(value) || 'Senha deve ter ao menos 8 caracteres, incluindo letras e números'
+                            }
                         })}
                         aria-invalid={errors.password ? "true" : "false"}
+                        autoComplete="new-password" // Adicionado
                     />
                     {errors.password && <span role="alert">{errors.password.message}</span>}
                 </div>
@@ -118,4 +127,4 @@ const CadastroUsuario = () => {
     );
 };
 
-export default CadastroUsuario;
+export default SignUpPage;

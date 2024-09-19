@@ -2,10 +2,9 @@
   "animais": [
     {
       "id": 1,
-      "animal": "Tigre",
+      "animal": "onça",
       "habitat": "Savana",
       "descricao": "Felino feroz",
-      "usuario": "Leiliane Costa",
       "usuarioId": 1
     },
     {
@@ -13,8 +12,7 @@
       "animal": "Tigre",
       "habitat": "Savana",
       "descricao": "Felino feroz",
-      "usuario": "Maria Oliveira",
-      "usuarioId": 2
+      "usuarioId": 1
     }
   ],
 
@@ -24,7 +22,6 @@
       "planta": "Samambaia",
       "habitat": "Floresta",
       "descricao": "Planta com folhas protuberantes",
-      "usuario": "Leiliane Costa",
       "usuarioId": 1
     },
     {
@@ -32,26 +29,25 @@
       "planta": "Orquídea",
       "habitat": "Floresta",
       "descricao": "Planta com umas das flores mais bonitas",
-      "usuario": "Leiliane Costa",
       "usuarioId": 1
     }
-  ],
-  
+  ],  
 
   "usuarios": [
     {
       "id": 1,
       "nome": "Leiliane Costa",
-      "cpf": "887.448.252-34",
+      "cpf": "88744825234",
       "email": "leilianelcs@gmail.com",
       "senha": "1234qwer"
     },
+
     {
       "id": 2,
-      "nome": "Maria Oliveira",
-      "cpf": "987.654.321-00",
-      "email": "maria.oliveira@example.com",
-      "senha": "senha456"
+      "nome": "Júlia de Sá",
+      "cpf": "05479992244",
+      "email": "julia@gmail.com",
+      "senha": "1234qwer"
     }
   ]
 }

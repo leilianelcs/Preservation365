@@ -11,7 +11,7 @@ import PlantaDetail from '../pages/detalhePlanta/PlantaDetail';
 import EditarPlanta from '../pages/editarPlanta/EditarPlanta';
 import ListaPlantas from '../components/listaPlantas/ListaPlantas';
 import ListaAnimais from '../components/listaAnimais/ListaAnimais';
-import SignUpPage from '../pages/SignUp/SignUp';
+import SignUpPage from '../pages/signUp/SignUp';
 // import { TemplatePrivado } from '../templates/template';
 
 

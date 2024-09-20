@@ -19,12 +19,28 @@ export async function api(endpoint, init) {
 }
 
 /**
+ * Generic fetch function for different entities.
+ * @param {string} entity - The entity to fetch (e.g., 'plantas', 'animais').
+ * @param {string} [userId] - Optional user ID to fetch specific user's entities.
+ * @returns {Promise<any>}
+ */
+async function fetchEntity(entity, userId) {
+  const endpoint = userId ? `/${entity}?usuario=${encodeURIComponent(userId)}` : `/${entity}`;
+  try {
+    const response = await api(endpoint);
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching ${entity}:`, error);
+    throw error;
+  }
+}
+
+/**
  * Fetches all plants.
  * @returns {Promise<any>}
  */
 export async function fetchPlantas() {
-  const response = await api('/plantas');
-  return response.json();
+  return fetchEntity('plantas');
 }
 
 /**
@@ -33,6 +49,22 @@ export async function fetchPlantas() {
  * @returns {Promise<any[]>}
  */
 export async function fetchPlantasByUser(userId) {
-  const response = await api(`/plantas?usuario=${encodeURIComponent(userId)}`);
-  return response.json();
+  return fetchEntity('plantas', userId);
+}
+
+/**
+ * Fetches all animals.
+ * @returns {Promise<any>}
+ */
+export async function fetchAnimais() {
+  return fetchEntity('animais');
+}
+
+/**
+ * Fetches animals associated with a specific user.
+ * @param {string} userId - The ID of the user.
+ * @returns {Promise<any[]>}
+ */
+export async function fetchAnimaisByUser(userId) {
+  return fetchEntity('animais', userId);
 }

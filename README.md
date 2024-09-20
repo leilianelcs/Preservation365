@@ -3,10 +3,10 @@
 # Projeto Final - Preservation365 - Por Leiliane Costa ✒️
 
 
-## Descrição do Projeto 📌
+## 📌 Descrição do Projeto 
 O Preservation365 é uma aplicação web que permite a criação de usuários, login, listagem e cadastro de plantas e animais. Além disso, oferece detalhes sobre as plantas cadastradas, exclusão e edição de itens. Este projeto visa facilitar o gerenciamento e a preservação de informações sobre a fauna e flora.
 
-## Problema que Resolve 💡
+## 💡 Problema que Resolve 
 O Preservation365 resolve o problema de gerenciamento e organização de informações sobre plantas e animais, permitindo que os usuários cadastrem, visualizem, editem e excluam dados de forma eficiente e centralizada.
 
 ## 💻 Funcionalidades
@@ -32,8 +32,13 @@ O Preservation365 resolve o problema de gerenciamento e organização de informa
 Para rodar esta aplicação localmente, siga estes passos:
 1. Clone este repositório para sua máquina: git clone https://github.com/leilianelcs/preservation365.git
 2. No terminal, instale as dependências: `npm install`
-3. Rode a aplicação: `npm run dev`
+3. Rode a aplicação: `npm run dev` `np`  
 4. Abra `http://localhost:5173/` em seu navegador para visualizar a aplicação.
+
+
+## 🙋 Tela Dashboard
+
+![image](./src/imgs/dashboard.png)
 
 
 ## ⌨️ Cadastrando Usuários
@@ -53,7 +58,8 @@ Para adicionar um novo animal, siga os passos abaixo:
 1. Digite o nome, habitat e características do animal nos campos de texto.
 2. Clique no botão "Cadastrar"
 
-## Melhorias Futuras 📈
+
+## 📈 Melhorias Futuras 
 Implementação de autenticação JWT para maior segurança.
 Integração com uma API externa para obter informações adicionais sobre plantas e animais.
 Adição de funcionalidades de busca e filtragem avançadas.
@@ -76,7 +82,7 @@ Contribuições são sempre bem-vindas! Para contribuir:
 4. Faça push para a branch (`git push origin feature/novaFeature`).
 5. Abra um Pull Request.
 
-## Contato 📞
+## 📞 Contato 
 - [@leilianelcs](https://www.github.com/leilianelcs)
 - 📫 leilianelc@gmail.com
 

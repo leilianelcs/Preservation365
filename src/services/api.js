@@ -36,3 +36,23 @@ export async function fetchPlantasByUser(userId) {
   const response = await api(`/plantas?usuario=${encodeURIComponent(userId)}`);
   return response.json();
 }
+
+
+/**
+ * Fetches all plants.
+ * @returns {Promise<any>}
+ */
+export async function fetchAnimais() {
+  const response = await api('/animais');
+  return response.json();
+}
+
+/**
+ * Fetches plants associated with a specific user.
+ * @param {string} userId - The ID of the user.
+ * @returns {Promise<any[]>}
+ */
+export async function fetchAnimaisByUser(userId) {
+  const response = await api(`/animais?usuario=${encodeURIComponent(userId)}`);
+  return response.json();
+}

@@ -11,8 +11,8 @@ import PlantaDetail from '../pages/detalhePlanta/PlantaDetail';
 import EditarPlanta from '../pages/editarPlanta/EditarPlanta';
 import ListaPlantas from '../components/listaPlantas/ListaPlantas';
 import ListaAnimais from '../components/listaAnimais/ListaAnimais';
-import SignUpPage from '../pages/SignUp/SignUp';
-// import { TemplatePrivado } from '../templates/template';
+import SignUpPage from '../pages/signUp/SignUp';
+import { TemplatePrivado } from '../templates/template';
 
 
 const AppRoutes = () => (
@@ -22,7 +22,7 @@ const AppRoutes = () => (
           <Route path="/login" element={<LoginPage />} />
           <Route path="/cadastro" element={<SignUpPage />} />
 
-          {/* <Route element={<TemplatePrivado />}> */}
+          <Route element={<TemplatePrivado />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/animal/novo" element={<CadastroAnimal />} />
               <Route path="/planta/nova" element={<CadastroPlanta />} />    
@@ -32,7 +32,7 @@ const AppRoutes = () => (
               <Route path="/animal/:id" element={<AnimalDetail />} />
               <Route path="/editar/animal/:id" element={<EditarAnimal />} /> 
               <Route path="/editar/planta/:id" element={<EditarPlanta />} /> 
-          {/* </Route> */}
+          </Route>
       </Routes>
   </AuthProvider>
 );

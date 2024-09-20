@@ -7,11 +7,6 @@ const validatePassword = (password) => {
     return regex.test(password);
 };
 
-const clearLocalStorage = () => {
-    localStorage.clear();
-    alert('LocalStorage limpo!');
-};
-
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
@@ -86,9 +81,7 @@ const LoginPage = () => {
                     Ainda não tem cadastro? <Link to="/cadastro">Cadastre-se</Link>
                 </p>
             </form>
-            <button className="clear-button" onClick={clearLocalStorage}>
-                Limpar LocalStorage
-            </button>
+            
         </div>
     );
 };

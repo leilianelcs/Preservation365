@@ -32,7 +32,7 @@ O Preservation365 resolve o problema de gerenciamento e organização de informa
 Para rodar esta aplicação localmente, siga estes passos:
 1. Clone este repositório para sua máquina: git clone https://github.com/leilianelcs/preservation365.git
 2. No terminal, instale as dependências: `npm install`
-3. Rode a aplicação: `npm run dev` `np`  
+3. Rode a aplicação: `npm run dev`
 4. Abra `http://localhost:5173/` em seu navegador para visualizar a aplicação.
 
 
@@ -84,7 +84,7 @@ Contribuições são sempre bem-vindas! Para contribuir:
 
 ## 📞 Contato 
 - [@leilianelcs](https://www.github.com/leilianelcs)
-- 📫 leilianelc@gmail.com
+- 📫 leilianelcs@gmail.com
 
 ### 🤝 Agradecimentos
 Obrigada por conferir o projeto! Sinta-se à vontade para contribuir e compartilhar suas sugestões.
